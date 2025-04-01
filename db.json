@@ -1,0 +1,88 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "firstName": "Marius",
+      "lastName": "Bushill",
+      "email": "mbushill0@wordpress.org",
+      "gender": "Male"
+    },
+    {
+      "id": "2",
+      "firstName": "Timi",
+      "lastName": "Yanukhin",
+      "email": "tyanukhin1@usa.gov",
+      "gender": "Female"
+    },
+    {
+      "id": "3",
+      "firstName": "Danna",
+      "lastName": "Gaspard",
+      "email": "dgaspard2@godaddy.com",
+      "gender": "Non-binary"
+    },
+    {
+      "id": "4",
+      "firstName": "Mycah",
+      "lastName": "Pye",
+      "email": "mpye3@hhs.gov",
+      "gender": "Male"
+    },
+    {
+      "id": "b64a998a-9ec4-4be8-b6ce-70b622155429",
+      "firstName": "kranthi",
+      "lastName": "sangem",
+      "email": "hayu@gmail.com",
+      "gender": "child"
+    },
+    {
+      "id": "ae08e1e0-a261-457a-99ce-9361995320f7",
+      "firstName": "Daksh",
+      "lastName": "Sycho",
+      "email": "Daksh@gmail.com",
+      "gender": "kid"
+    },
+    {
+      "id": "03170e09-db63-4184-bb8b-32c603254214",
+      "firstName": "Daksh",
+      "lastName": "Sycho",
+      "email": "Daksh@gmail.com",
+      "gender": "kid"
+    },
+    {
+      "id": "c8390765-cb45-4649-bae0-4aa1468a1d89",
+      "firstName": "tyson",
+      "lastName": "singam",
+      "email": "singam@gmail.com",
+      "gender": "dog"
+    },
+    {
+      "id": "0feb1c66-b380-4abe-a37c-b809eb179f73",
+      "firstName": "yogi",
+      "lastName": "gudda",
+      "email": "gudda@gmail.com",
+      "gender": "Other"
+    },
+    {
+      "id": "f84219ad-9447-45cf-8204-d41c40a7dc81",
+      "firstName": "kranthi",
+      "lastName": "sangem",
+      "email": "budda@gmail.com",
+      "gender": "Female"
+    },
+    {
+      "id": "4e8a3a50-5705-44db-a255-27486c606e23",
+      "firstName": "kranthi",
+      "lastName": "sangem",
+      "email": "budda@gmail.com",
+      "gender": "Female"
+    },
+    {
+      "id": "c64be360-b2b2-4029-a83f-f41bbfbafa2b",
+      "firstName": "kranthi",
+      "lastName": "sangem",
+      "email": "budda@gmail.com",
+      "gender": "Female"
+    }
+  ]
+}
