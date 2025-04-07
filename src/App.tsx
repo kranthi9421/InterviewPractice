@@ -13,6 +13,7 @@ import { Parallel } from "./ParallelDataFetch/Parallel"
 import { Sequential } from "./SequentialDataFetch/Sequential"
 import { Users } from "./UseFetch/Users"
 import { Form } from "./UseForm/Form"
+import { ProgressBar } from "./ProgressBar/ProgressBar"
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
       <TimerStop />
       <Users />
       <Form />
+      <ProgressBar />
     </div>
   )
 }
