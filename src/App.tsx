@@ -11,6 +11,8 @@ import { HtmlEntities } from "./HtmlEntitiesApiDisplay/HtmlEntities"
 import { Pagination } from "./Pagination/Pagination"
 import { Parallel } from "./ParallelDataFetch/Parallel"
 import { Sequential } from "./SequentialDataFetch/Sequential"
+import { Users } from "./UseFetch/Users"
+import { Form } from "./UseForm/Form"
 
 const App = () => {
   return (
@@ -22,12 +24,14 @@ const App = () => {
       <Shopping />
       <Step />
       <CountrySelect />
-      <TimerStop />
       <DebounceList />
       <HtmlEntities />
       <Pagination />
       <Parallel />
       <Sequential />
+      <TimerStop />
+      <Users />
+      <Form />
     </div>
   )
 }
