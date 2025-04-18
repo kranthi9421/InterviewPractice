@@ -14,6 +14,7 @@ import { Sequential } from "./SequentialDataFetch/Sequential"
 import { Users } from "./UseFetch/Users"
 import { Form } from "./UseForm/Form"
 import { ProgressBar } from "./ProgressBar/ProgressBar"
+import { ModalDemo } from "./Modal/ModalDemo"
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
       <Users />
       <Form />
       <ProgressBar />
+      <ModalDemo/>
     </div>
   )
 }
