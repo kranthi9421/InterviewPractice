@@ -8,6 +8,7 @@ type ModalProps = {
 };
 
 export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
+  // Create a container for the modal (once per component instance)
   const modalContainer = document.createElement("div");
 
   useEffect(() => {
@@ -20,19 +21,23 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
         document.body.removeChild(modalContainer);
       }
     };
-  }, [isOpen]);
+  }, [isOpen, modalContainer]);
 
   if (!isOpen) return null;
+
+  const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    // ✅ Close only if user clicked directly on the overlay
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
 
   return createPortal(
     <div
       className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-      onClick={onClose}
+      onClick={handleOverlayClick}
     >
-      <div
-        className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md relative"
-        onClick={(e) => e.stopPropagation()}
-      >
+      <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md relative">
         <button
           onClick={onClose}
           className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
