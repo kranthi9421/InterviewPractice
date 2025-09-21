@@ -1,25 +1,25 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react";
 
 export const TimerStop = () => {
-  const [count, setCount] = React.useState(0)
-  const countRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const [count, setCount] = useState(0);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
-    countRef.current = setInterval(() => {
-      setCount((prev) => {
-        if (prev >= 10) {
-          if (countRef.current) clearInterval(countRef.current)
-          return prev
-        } else {
-          return prev + 1
-        }
-      })
-    }, 1000)
-  }, [])
+    timerRef.current = setInterval(() => {
+      setCount((prev) => (prev >= 10 ? prev : prev + 1));
+    }, 1000);
 
-  return (
-    <div>
-      <h1 className="text-5xl">{count}</h1>
-    </div>
-  )
-}
+    return () => {
+      // Cleanup when component unmounts
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (count >= 10 && timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+  }, [count]);
+
+  return <h1 className="text-5xl">{count}</h1>;
+};
