@@ -9,7 +9,7 @@ export const useForm = (intialValue:string) => {
 
   const bind = {
     value,
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
+    onChange:         (e:React.ChangeEvent<HTMLInputElement>)=>
       setValue(e.target.value),
   }
   return [value, bind, resest] as const
