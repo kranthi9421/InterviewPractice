@@ -2,17 +2,17 @@ import { useEffect } from "react";
 import { createPortal } from "react-dom";
 
 type ModalProps = {
-  isOpen: boolean;
+  isModalOpen: boolean;
   onClose: () => void;
   children: React.ReactNode;
 };
 
-export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
+export const Modal = ({ isModalOpen, onClose, children }: ModalProps) => {
   // Create a container for the modal (once per component instance)
   const modalContainer = document.createElement("div");
 
   useEffect(() => {
-    if (isOpen) {
+    if (isModalOpen) {
       document.body.appendChild(modalContainer);
     }
 
@@ -21,9 +21,9 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
         document.body.removeChild(modalContainer);
       }
     };
-  }, [isOpen, modalContainer]);
+  }, [isModalOpen, modalContainer]);
 
-  if (!isOpen) return null;
+  if (!isMpdalOpen) return null;
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
     // ✅ Close only if user clicked directly on the overlay
