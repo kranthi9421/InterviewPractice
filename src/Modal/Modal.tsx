@@ -23,7 +23,7 @@ export const Modal = ({ isModalOpen, onClose, children }: ModalProps) => {
     };
   }, [isModalOpen, modalContainer]);
 
-  if (!isMpdalOpen) return null;
+  if (!isModalOpen) return null;
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
     // ✅ Close only if user clicked directly on the overlay
