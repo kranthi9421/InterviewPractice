@@ -18,6 +18,7 @@ export const TimerStop = () => {
   useEffect(() => {
     if (count >= 10 && timerRef.current) {
       clearInterval(timerRef.current);
+      timerRef.current = null
     }
   }, [count]);
 
