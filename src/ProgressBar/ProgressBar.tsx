@@ -9,7 +9,7 @@ export const ProgressBar = () => {
   const handleClick = () => {
     setProgress((prev) => {
       const next = prev + step
-      return next >= 100 ? 100 : parseFloat(next.toFixed(2))
+      return next >= 100 ? 100 :Number(next.toFixed(2))
     })
   }
 
