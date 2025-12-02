@@ -6,7 +6,7 @@ export const TimerStop = () => {
 
   useEffect(() => {
     timerRef.current = setInterval(() => {
-      setCount((prev) => (prev >= 10 ? prev : prev + 1));
+      setCount((prev) => (prev < 10 ? prev+1 : prev ));
     }, 1000);
 
     return () => {
