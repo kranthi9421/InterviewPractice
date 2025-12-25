@@ -26,7 +26,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    return () => stop();
+    return () => pause();
   }, []);
 
   return (
