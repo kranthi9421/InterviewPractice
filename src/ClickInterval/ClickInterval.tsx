@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const App = () => {
+ 
   const [count, setCount] = useState(0);
 
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
