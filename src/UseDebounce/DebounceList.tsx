@@ -1,30 +1,31 @@
-import React, { useEffect, useState } from "react"
-import UseDebounce from "./UseDebounce"
-
+import  useDebounce  from "./useDebounce";
+import { useState } from "react";
 
 const data = ["hayu", "daksh", "dog", "pig", "girafee", "eagle", "rihno"]
 
-export const DebounceList = () => {
-  const [input, setInput] = useState<string>("")
-  const [results, setResults] = useState<string[]>([])
+const DebounceList = () => {
+ 
+  const [input, setInput] = useState("");
 
-  const deb = UseDebounce(input,3000)
+  const deb = useDebounce(input, 5000);
 
-  useEffect(() => {
-    const filtered = data.filter((item) =>
-      item.toLowerCase().includes(deb.toLowerCase())
-    )
-    setResults(filtered)
-  }, [deb])
+  const filterData = data.filter((item) =>
+    item.toLowerCase().includes(deb.toLowerCase())
+  );
 
   return (
     <div>
-      <input type="text" value={input} onChange={(e) => setInput(e.target.value)} />
-      {results.length > 0 ? (
-        results.map((item) => <p key={item}>{item}</p>)
-      ) : (
-        <p>No results found</p>
-      )}
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+      />
+
+      {filterData.length > 0
+        ? filterData.map((item) => <li key={item}>{item}</li>)
+        : "No results"}
     </div>
-  )
-}
+  );
+};
+
+export default DebounceList;
