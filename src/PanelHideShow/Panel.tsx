@@ -50,7 +50,7 @@ export default function AccordionPanel() {
     <div>
       {panels.map((panel, index) => (
         <Accordion
-          key={index}
+          key={panel.title}
           title={panel.title}
           isActive={activePanel === index}
           onToggle={() => toggle(index)}
