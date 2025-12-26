@@ -21,7 +21,7 @@ export const Traffic = () => {
     <div className="w-[200px] h-[500px] bg-black">
       {colors.map((color, index) => (
         <div
-          key={index}
+          key={color.color}
           className={`${
             index === active ? color.color : "bg-slate-500"
           } w-[150px] h-[150px] rounded-full`}
