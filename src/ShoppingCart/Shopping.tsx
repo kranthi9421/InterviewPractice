@@ -38,7 +38,7 @@ export const Shopping = () => {
   return (
     <div className="max-w-3xl mx-auto p-6">
       <header className="flex justify-between font-bold text-lg mb-4">
-        <span>Product</span>
+        <span>Product Name</span>
         <span>Price</span>
         <span>Quantity</span>
       </header>
