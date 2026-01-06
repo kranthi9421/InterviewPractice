@@ -6,10 +6,10 @@ type Props = {
    id : number
    title : string
    userId : number
-}[]
+}
 
 export const Sequential = () => {
-  const [posts, setPosts] = useState<Props>([])
+  const [posts, setPosts] = useState<Props[]>([])
   
   const filteredPosts = posts.filter((post) => post.id % 10 === 1)
   
