@@ -21,7 +21,9 @@ const App = () => {
   const addTodo = () => {
 
 
-    setList(prev => [ ...prev, { id: Date.now(), text: todoText}]);
+    setList(prev => [ ...prev, { id: Date.now(), text: 
+
+todoText}]);
    
     setTodoText("");
  
