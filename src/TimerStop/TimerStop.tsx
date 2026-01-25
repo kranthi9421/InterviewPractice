@@ -8,7 +8,7 @@ const App = () => {
   useEffect(() => {
     countRef.current = setInterval(() => {
       setCount((prev) => {
-        if (prev >= 9) {
+        if (prev >= 10) {
           if (countRef.current) {
             clearInterval(countRef.current);
             countRef.current = null;
