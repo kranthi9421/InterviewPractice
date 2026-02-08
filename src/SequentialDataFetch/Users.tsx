@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 
 /* ---------- Types ---------- */
 
-type UserProps = {
-  userId: number;
-};
+
 
 type User = {
   name: string;
@@ -12,7 +10,7 @@ type User = {
 
 /* ---------- Component ---------- */
 
-const Users = ({ userId }: UserProps) => {
+const Users = ({ userId }: {userId: number}) => {
   const [user, setUser] = useState<User | null>(null);
 
   const getData = async () => {
