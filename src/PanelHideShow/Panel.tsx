@@ -7,18 +7,28 @@ type AccordionProps = {
   onToggle: () => void;
 };
 
-const Accordion = ({ title, children, isActive, onToggle }: AccordionProps) => {
+const Accordion = ({
+  title,
+  children,
+  isActive,
+  onToggle,
+}: AccordionProps) => {
   return (
     <section style={{ marginBottom: "15px" }}>
       <h3 onClick={onToggle} style={{ cursor: "pointer" }}>
         {title}
       </h3>
 
-      {isActive t default function AccordionPanel() {
+      {isActive && <div>{children}</div>}
+    </section>
+  );
+};
+
+export default function AccordionPanel() {
   const [activePanel, setActivePanel] = useState<number | null>(null);
 
   const toggle = (index: number) => {
-    setActivePanel((activePanel) => (activePanel === index ? null : index));
+    setActivePanel(prev => (prev === index ? null : index));
   };
 
   const panels = [
