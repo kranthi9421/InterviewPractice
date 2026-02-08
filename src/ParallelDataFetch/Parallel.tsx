@@ -20,7 +20,7 @@ export const Parallel = () => {
   const [postError, setPostError] = useState<string>("");
   const [userError, setUserError] = useState<string>("");
 
-  const getPosts = async (): Promise<Post[]> => {
+  const getPosts = async ()=>{
     try {
       const res = await fetch(
         "https://jsonplaceholder.typicode.com/posts"
@@ -36,7 +36,7 @@ export const Parallel = () => {
     }
   };
 
-  const getUsers = async (): Promise<User[]> => {
+  const getUsers = async ()=>{
     try {
       const res = await fetch(
         "https://jsonplaceholder.typicode.com/users"
