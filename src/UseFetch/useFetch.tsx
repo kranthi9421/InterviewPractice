@@ -1,12 +1,7 @@
-import { useState, useEffect } from "react"
-
-type Users = {
-  id: number
-  name: string
-}
+import { useState, useEffect } from 'react'
 
 export const useFetch = (url: string) => {
-  const [users, setUsers] = useState<Users[]>([])
+  const [users, setUsers] = useState<any>(null)
 
   const getData = async () => {
     const res = await fetch(url)
