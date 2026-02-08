@@ -2,14 +2,14 @@ import React, { Suspense, useEffect, useState } from "react"
 
 const Users = React.lazy(() => import("./Users"))
 
-type Props = {
+type Posts = {
    id : number
    title : string
    userId : number
 }
 
 export const Sequential = () => {
-  const [posts, setPosts] = useState<Props[]>([])
+  const [posts, setPosts] = useState<Posts[]>([])
   
   const filteredPosts = posts.filter((post) => post.id % 10 === 1)
   
