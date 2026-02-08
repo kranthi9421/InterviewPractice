@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 // cache using Map
 const cache = new Map<string, any>();
 
-export const useFetch = (url: string) => {
+export const UseFetch = (url: string) => {
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
