@@ -10,18 +10,11 @@ type AccordionProps = {
 const Accordion = ({ title, children, isActive, onToggle }: AccordionProps) => {
   return (
     <section style={{ marginBottom: "15px" }}>
-      <h3>{title}</h3>
+      <h3 onClick={onToggle} style={{ cursor: "pointer" }}>
+        {title}
+      </h3>
 
-      {isActive ? (
-        <p>{children}</p>
-      ) : (
-        <button onClick={onToggle}>Show</button>
-      )}
-    </section>
-  );
-};
-
-export default function AccordionPanel() {
+      {isActive t default function AccordionPanel() {
   const [activePanel, setActivePanel] = useState<number | null>(null);
 
   const toggle = (index: number) => {
