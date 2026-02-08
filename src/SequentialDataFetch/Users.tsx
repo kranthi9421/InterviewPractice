@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 
 /* ---------- Types ---------- */
 
-
-
 type User = {
   name: string;
 };
