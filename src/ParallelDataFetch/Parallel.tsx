@@ -1,36 +1,63 @@
 import { useEffect, useState } from "react";
-import axios from "axios"; // ✅ Import axios
+
+/* ---------- Types ---------- */
+
+type Post = {
+  id: number;
+  title: string;
+};
+
+type User = {
+  id: number;
+  name: string;
+};
+
+/* ---------- Component ---------- */
 
 export const Parallel = () => {
-  const [posts, setPosts] = useState<{ id: number; title: string }[]>([]);
-  const [users, setUsers] = useState<{ id: number; name: string }[]>([]);
-  const [postError, setPostError] = useState("");
-  const [userError, setUserError] = useState("");
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
+  const [postError, setPostError] = useState<string>("");
+  const [userError, setUserError] = useState<string>("");
 
-  const getPosts = async () => {
+  const getPosts = async (): Promise<Post[]> => {
     try {
-      const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
-      setPostError(""); // Reset error if successful
-      return res.data;  // ✅ Axios puts the response body in res.data
-    } catch (error) {
+      const res = await fetch(
+        "https://jsonplaceholder.typicode.com/posts"
+      );
+
+      if (!res.ok) throw new Error("Failed to fetch posts");
+
+      setPostError("");
+      return await res.json();
+    } catch {
       setPostError("Error fetching posts");
-      return []; // Always return an empty array to prevent map() error
+      return [];
     }
   };
 
-  const getUsers = async () => {
+  const getUsers = async (): Promise<User[]> => {
     try {
-      const res = await axios.get("https://jsonplaceholder.typicode.com/users");
-      setUserError(""); // Reset error if successful
-      return res.data;  // ✅ Use res.data
-    } catch (error) {
+      const res = await fetch(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+
+      if (!res.ok) throw new Error("Failed to fetch users");
+
+      setUserError("");
+      return await res.json();
+    } catch {
       setUserError("Error fetching users");
-      return []; // Always return an empty array to prevent map() error
+      return [];
     }
   };
 
   const mainData = async () => {
-    const [postsData, usersData] = await Promise.all([getPosts(), getUsers()]);
+    const [postsData, usersData] = await Promise.all([
+      getPosts(),
+      getUsers(),
+    ]);
+
     setPosts(postsData);
     setUsers(usersData);
   };
@@ -42,22 +69,22 @@ export const Parallel = () => {
   return (
     <div className="flex justify-around">
       <div>
-        {postError ? (
-          <p>{postError}</p>
-        ) : (
-          posts.map((post) => <p key={post.id}>{post.title}</p>)
-        )}
+        {postError
+          ? <p>{postError}</p>
+          : posts.map(post => (
+              <p key={post.id}>{post.title}</p>
+            ))
+        }
       </div>
 
       <div>
-        {userError ? (
-          <p>{userError}</p>
-        ) : (
-          users.map((user) => <p key={user.id}>{user.name}</p>)
-        )}
+        {userError
+          ? <p>{userError}</p>
+          : users.map(user => (
+              <p key={user.id}>{user.name}</p>
+            ))
+        }
       </div>
     </div>
   );
 };
-
-
