@@ -1,47 +1,61 @@
-import React, { useState } from "react"
-
-const items = Array.from({ length: 50 }, (_, i) => `Item ${i + 1}`)
-const itemsPerPage = 5
-
 export const Pagination = () => {
-  const [currentPage, setCurrentPage] = useState(1)
-  const totalPages = Math.ceil(items.length / itemsPerPage)
+ 
+  const [posts, setPosts] = useState([]);
 
-  const handleClick = (page:number) => {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const itemsPerPage = 5;
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+
+  const currentItems = posts.slice(startIndex, startIndex + itemsPerPage);
+
+  const totalPages = Math.ceil(posts.length / itemsPerPage);
+
+  const handleClick = (page: number) => {
+   
     if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page)
+    
+      setCurrentPage(page);
+   
     }
-  }
+  };
 
-  const startIndex = (currentPage - 1) * itemsPerPage
-  const currentItems = items.slice(startIndex, startIndex + itemsPerPage)
+  const fetchPosts = async () => {
+    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const data = await response.json();
+    setPosts(data);
+  };
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
 
   return (
     <div>
-      <ul>
-        {currentItems.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-      <div>
-        <button
-          onClick={() => handleClick(currentPage - 1)}
-          disabled={currentPage === 1}
-        >
-          Previous
-        </button>
         <span>
           {" "}
           Page {currentPage} of {totalPages}{" "}
         </span>
-        <button
-          onClick={() => handleClick(currentPage + 1)}
-          disabled={currentPage === totalPages}
-        >
-          Next
-        </button>
-      </div>
-    </div>
-  )
-}
 
+      {currentItems.map((item:any) => (
+        <li key={item.id}>{item.title}</li>
+      ))}
+
+      <button
+        disabled={currentPage === 1}
+        onClick={() => handleClick(currentPage - 1)}
+      >
+        Prev
+      </button>
+
+      <button
+        disabled={currentPage === totalPages}
+        onClick={() => handleClick(currentPage + 1)}
+      >
+        Next
+      </button>
+ 
+    </div>
+  );
+};
