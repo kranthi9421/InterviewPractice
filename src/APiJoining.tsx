@@ -14,7 +14,7 @@ type ProductItem = {
   title: string;
 };
 
-const Profile: React.FC = () => {
+const Profile = () => {
   const [cartItems, setCartItems] = useState<ProductItem[]>([]);
 
   useEffect(() => {
