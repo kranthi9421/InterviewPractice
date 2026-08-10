@@ -11,14 +11,8 @@ type CartProduct = {
   quantity: number;
 };
 
-type ProductItem = {
-  id: number;
-  title: string;
-  image: string;
-};
-
 const Profile = () => {
-  const [cartItems, setCartItems] = useState<ProductItem[]>([]);
+  const [cartItems, setCartItems] = useState<Product[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,11 +47,7 @@ const Profile = () => {
       {cartItems.map((item) => (
         <div key={item.id}>
           <h3>{item.title}</h3>
-          <img
-            className="w-24"
-            src={item.image}
-            alt={item.title}
-          />
+          <img src={item.image} alt={item.title} />
         </div>
       ))}
     </div>
