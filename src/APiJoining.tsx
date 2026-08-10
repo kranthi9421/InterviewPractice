@@ -12,7 +12,7 @@ type CartProduct = {
 };
 
 const Profile = () => {
-  const [cartItems, setCartItems] = useState<Product[]>([]);
+  const [productItems, setProductItems] = useState<Product[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,7 +36,7 @@ const Profile = () => {
         };
       });
 
-      setCartItems(result);
+      setProductItems(result);
     };
 
     fetchData();
@@ -44,7 +44,7 @@ const Profile = () => {
 
   return (
     <div>
-      {cartItems.map((item) => (
+      {productItems.map((item) => (
         <div key={item.id}>
           <h3>{item.title}</h3>
           <img src={item.image} alt={item.title} />
@@ -54,4 +54,4 @@ const Profile = () => {
   );
 };
 
-export default Profile
+export default Profile;
