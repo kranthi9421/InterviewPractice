@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Modal } from "./Modal";
 
-export const ModalDemo = () => {
+export const App = () => {
      const [isModalOpen, setModalOpen] = useState(false);
     
       return (
