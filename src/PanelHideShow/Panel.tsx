@@ -28,7 +28,7 @@ export default function AccordionPanel() {
   const [activePanel, setActivePanel] = useState<number | null>(null);
 
   const toggle = (index: number) => {
-    setActivePanel(prev => (prev === index ? null : index));
+    setActivePanel(current => (current === index ? null : index));
   };
 
   const panels = [
