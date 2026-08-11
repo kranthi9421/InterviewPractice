@@ -7,8 +7,8 @@ export const ProgressBar = () => {
   const step = 100 / steps
 
   const handleClick = () => {
-    setProgress((prev) => {
-      const next = prev + step
+    setProgress((current) => {
+      const next = current + step
       return next >= 100 ? 100 :    Number(next.toFixed(2))
     })
   }
