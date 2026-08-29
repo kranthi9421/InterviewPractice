@@ -13,13 +13,10 @@ export const Pagination = () => {
   const totalPages = Math.ceil(posts.length / itemsPerPage);
 
   const handleClick = (page: number) => {
-   
-    if (page >= 1 && page <= totalPages) {
-    
-      setCurrentPage(page);
-   
-    }
-  };
+  if (page < 1 || page > totalPages) return;
+
+  setCurrentPage(page);
+};
 
   const fetchPosts = async () => {
     const response = await fetch("https://jsonplaceholder.typicode.com/posts");
