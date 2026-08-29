@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import {useState} from 'react';
 
 export const Step = () => {
       const [step, setStep] = useState(1)
