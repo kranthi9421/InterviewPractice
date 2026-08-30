@@ -11,7 +11,7 @@ export const useFetch = (url: string) => {
 
   useEffect(() => {
     getData()
-  }, [])
+  }, [url])
 
   return { users }
 }
