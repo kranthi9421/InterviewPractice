@@ -5,8 +5,8 @@ export const useFetch = (url: string) => {
 
   const getData = async () => {
     const res = await fetch(url)
-    const users = await res.json()
-    setUsers(users)
+    const data = await res.json()
+    setUsers(data)
   }
 
   useEffect(() => {
