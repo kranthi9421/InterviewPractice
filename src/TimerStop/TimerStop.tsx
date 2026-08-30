@@ -23,6 +23,7 @@ const App = () => {
     return () => {
       if (countRef.current) {
         clearInterval(countRef.current);
+        countRef.current = null;
       }
     };
   }, []);
