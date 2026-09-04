@@ -6,11 +6,12 @@ export const Pagination = () => {
 
   const itemsPerPage = 5;
 
+  const totalPages = Math.ceil(posts.length / itemsPerPage);
+
   const startIndex = (currentPage - 1) * itemsPerPage;
 
   const currentItems = posts.slice(startIndex, startIndex + itemsPerPage);
 
-  const totalPages = Math.ceil(posts.length / itemsPerPage);
 
   const handleClick = (page: number) => {
   if (page < 1 || page > totalPages) return;
