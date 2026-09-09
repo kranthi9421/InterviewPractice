@@ -7,10 +7,7 @@ export const ProgressBar = () => {
   const step = 100 / steps
 
   const handleClick = () => {
-    setProgress((current) => {
-      const next = current + step
-      return next >= 100 ? 100 :    Number(next.toFixed(2))
-    })
+    setProgress((current) => Math.min(current + step, 100))
   }
 
   const handleReset = () => {
@@ -22,21 +19,25 @@ export const ProgressBar = () => {
       <h1 className="text-xl font-semibold">
         Progress - {progress.toFixed(0)}%
       </h1>
+
       <div className="w-[600px] h-6 bg-slate-400 rounded-full overflow-hidden mx-auto">
         <div
           style={{ width: `${progress}%` }}
-          className="h-full bg-green-700 transition-all duration-300 rounded-full"
-        ></div>
+          className="h-full bg-green-700 transition-all duration-300"
+        />
       </div>
+
       <button
         onClick={handleClick}
-        className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        disabled={progress === 100}
+        className="px-4 py-2 bg-blue-600 text-white rounded"
       >
         Click
       </button>
+
       <button
         onClick={handleReset}
-        className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        className="px-4 py-2 bg-blue-600 text-white rounded"
       >
         Reset
       </button>
