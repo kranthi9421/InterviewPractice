@@ -1,22 +1,31 @@
-import React from 'react';
+import { useState } from "react";
 
 export const Circle = () => {
-  const [show, setShow] = React.useState(true)
-    return (
-      <>
+  const [show, setShow] = useState(true);
+
+  return (
+    <>
+      <div
+        style={{
+          width: "300px",
+          height: "300px",
+          backgroundColor: show ? "gray" : "red",
+        }}
+      >
         <div
-          className={`w-[300px] h-[300px] ${
-            show ? "bg-slate-500" : "bg-red-500"
-          }`}
-        >
-          <div
-            className={`w-[100px] h-[100px] rounded-full ${
-              show ? "bg-red-500" : "bg-slate-500"
-            }`}
-          ></div>
-        </div>
-        <button onClick={() => setShow(!show)}>Click</button>
-      </>
-    )
+          style={{
+            width: "100px",
+            height: "100px",
+            borderRadius: "50%",
+            backgroundColor: show ? "red" : "gray",
+          }}
+        />
+      </div>
+
+      <button onClick={() => setShow((prev) => !prev)}>
+        Click
+      </button>
+    </>
+  );
 };
 
