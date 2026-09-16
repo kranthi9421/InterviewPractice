@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react"
 
 const colors = [
-  { color: "bg-red-500", dur: 5000 },
-  { color: "bg-yellow-500", dur: 2000 },
-  { color: "bg-green-500", dur: 5000 },
-]
+  { color: "red", dur: 5000 },
+  { color: "yellow", dur: 2000 },
+  { color: "green", dur: 5000 },
+];
 
 export const Traffic = () => {
   const [active, setActive] = useState(0)
