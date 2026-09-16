@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 const colors = [
   { color: "red", dur: 5000 },
@@ -7,26 +7,36 @@ const colors = [
 ];
 
 export const Traffic = () => {
-  const [active, setActive] = useState(0)
+  const [active, setActive] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setActive((prev) => (prev + 1) % colors.length)
-    }, colors[active].dur)
+      setActive((prev) => (prev + 1) % colors.length);
+    }, colors[active].dur);
 
-    return () => clearTimeout(timer) // Clear timeout on re-run
-  }, [active]) // Only depend on active
+    return () => clearTimeout(timer);
+  }, [active]);
 
   return (
-    <div className="w-[200px] h-[500px] bg-black">
+    <div
+      style={{
+        width: "200px",
+        height: "500px",
+        backgroundColor: "black",
+      }}
+    >
       {colors.map((color, index) => (
         <div
           key={color.color}
-          className={`${
-            index === active ? color.color : "bg-slate-500"
-          } w-[150px] h-[150px] rounded-full`}
-        ></div>
+          style={{
+            width: "150px",
+            height: "150px",
+            borderRadius: "50%",
+            backgroundColor:
+              index === active ? color.color : "gray",
+          }}
+        />
       ))}
     </div>
-  )
-}
+  );
+};
