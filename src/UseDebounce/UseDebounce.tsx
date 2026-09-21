@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
   
   }, [val, del]);
 
-  return debVal;
+  return {debVal}
 };
 
 
