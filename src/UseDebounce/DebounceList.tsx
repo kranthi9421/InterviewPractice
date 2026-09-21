@@ -7,10 +7,10 @@ const DebounceList = () => {
  
   const [input, setInput] = useState("");
 
-  const {debval} = useDebounce(input, 5000);
+  const {debVal} = useDebounce(input, 5000);
 
   const filterData = data.filter((item) =>
-    item.toLowerCase().includes(debval.toLowerCase())
+    item.toLowerCase().includes(debVal.toLowerCase())
   );
 
   return (
